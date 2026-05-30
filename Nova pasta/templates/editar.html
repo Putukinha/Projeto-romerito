@@ -1,14 +1,42 @@
 {% extends 'base.html' %}
+
 {% block content %}
+
 <h2>Editar Tarefa</h2>
+
 <form method="POST">
-    <input name="titulo" value="{{ tarefa.titulo }}" required>
 
-    <select name="status">
-        <option value="pendente">Pendente</option>
-        <option value="concluida">Concluída</option>
-    </select>
+   <input
+       type="text"
+       name="titulo"
+       value="{{ tarefa['titulo'] }}"
+       required
+   >
 
-    <button type="submit">Salvar</button>
+   <select name="status">
+
+       <option value="pendente"
+       {% if tarefa['status'] == 'pendente' %}
+       selected
+       {% endif %}
+       >
+           Pendente
+       </option>
+
+       <option value="concluida"
+       {% if tarefa['status'] == 'concluida' %}
+       selected
+       {% endif %}
+       >
+           Concluída
+       </option>
+
+   </select>
+
+   <button type="submit">
+       Salvar
+   </button>
+
 </form>
+
 {% endblock %}
