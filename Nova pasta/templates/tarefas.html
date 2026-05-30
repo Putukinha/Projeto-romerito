@@ -1,24 +1,52 @@
 {% extends 'base.html' %}
+
 {% block content %}
+
 <h2>Minhas Tarefas</h2>
 
 <form method="POST" action="/nova">
-    <input name="titulo" placeholder="Nova tarefa" required>
-    <button type="submit">Adicionar</button>
+
+   <input
+       type="text"
+       name="titulo"
+       placeholder="Nova tarefa"
+       required
+   >
+
+   <button type="submit">
+       Adicionar
+   </button>
+
 </form>
 
 <br>
+
 <a href="/tarefas">Todas</a>
 <a href="/tarefas?status=pendente">Pendentes</a>
 <a href="/tarefas?status=concluida">Concluídas</a>
 
+<hr>
+
 <ul>
+
 {% for t in tarefas %}
-    <li>
-        {{ t.titulo }} - {{ t.status }}
-        <a href="/editar/{{ t.id }}">Editar</a>
-        <a href="/deletar/{{ t.id }}">Excluir</a>
-    </li>
+
+<li>
+
+   {{ t['titulo'] }} - {{ t['status'] }}
+
+   <a href="/editar/{{ t['id'] }}">
+       Editar
+   </a>
+
+   <a href="/deletar/{{ t['id'] }}">
+       Excluir
+   </a>
+
+</li>
+
 {% endfor %}
+
 </ul>
+
 {% endblock %}
