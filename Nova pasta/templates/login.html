@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Login</h2>
+<form method="POST">
+    <input name="username" placeholder="Usuário" required>
+    <input name="senha" type="password" placeholder="Senha" required>
+    <button type="submit">Entrar</button>
+</form>
+<a href="/cadastro">Cadastrar</a>
+{% endblock %}

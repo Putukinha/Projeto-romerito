@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/tarefas">Tarefas</a>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    {% block content %}{% endblock %}
+</body>
+</html>
